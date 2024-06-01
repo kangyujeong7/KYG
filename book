@@ -1,0 +1,26 @@
+#!/bin/bash
+# 1번
+name="$1"
+echo "이름은 $name 입니다."
+
+phone=$(grep "$name" book.txt | cut -d' ' -f3)
+echo "$name의 전화번호는 $phone 입니다."
+
+
+# 2번
+firstname="$1"
+lastname="$2"
+phonenum="$3"
+
+echo "새로 추가된 정보는 $1 $2 $3 입니다." >> book.txt
+
+# 3번
+deletename="$1"
+
+# 삭제할 이름을 포함하지 않는 줄을 임시 파일에 저장
+grep -v "deletename" book.txt > temp.txt
+
+# 임시 파일을 원본 파일로 이동하여 덮어쓰기
+mv temp.txt book.txt
+
+echo "$deletename의 정보가 삭제되었습니다."

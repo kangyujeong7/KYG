@@ -1,0 +1,10 @@
+#!/bin/bash
+
+dir="$1"
+
+files=$(ls . $dir | cut -c1 | grep -v "d" | wc -l)
+directory=$(ls . $dir | cut -c1 | grep "d" | wc -l)
+#echo "현재위치: $dir" #count로 읽힘
+echo  현재위치: $dir # 전부 다 들어간다
+echo "파일 $files개, 폴더 $directory개입니다."
+
